@@ -7,13 +7,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.PriorityQueue;
+
 import static DataObject.LogInData.*;
 
-public class LogIn {
+public class LoginTest {
 
     WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod (groups = {"test group 1", "test group 2"})
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -21,7 +23,7 @@ public class LogIn {
         driver.manage().window().maximize();
     }
 
-    @Test
+    @Test (priority = 1, groups = "test group 1")
     public void LoginWithIncorrectData() throws InterruptedException {
 
         LoginSteps step1 = new LoginSteps(driver);
@@ -29,14 +31,13 @@ public class LogIn {
         step1.passwordInput(incorrectPasswordData);
         step1.clickOnLogInButton();
 
-
         Thread.sleep(5000);
 
 
 
     }
 
-    @Test
+    @Test (priority = 2,groups = "test group 2")
 
     public void LoginWithCorrectData() throws InterruptedException {
 
@@ -50,7 +51,7 @@ public class LogIn {
 
     }
 
-    @AfterMethod
+    @AfterMethod (groups = {"test group 1", "test group 2"})
     public void endTest() {
         driver.quit();
     }

@@ -15,18 +15,18 @@ public class LoginSteps extends LoginPage {
 
     }
 
-
+    @Step
     public void emailInput(String s) {
         driver.findElement(emailField).sendKeys(s);
 
     }
-
+    @Step
     public void passwordInput(String s) {
 
         driver.findElement(passwordField).sendKeys(s);
     }
 
-
+    @Step
     public void clickOnLogInButton() {
         driver.findElement(logInButton).click();
     }
