@@ -1,7 +1,4 @@
-import DataObject.HomePageData;
 import DataObject.LogInData;
-import PageObject.HomePage;
-import PageObject.LoginPage;
 import StepObject.CartPageSteps;
 import StepObject.HomePageSteps;
 import StepObject.LoginSteps;

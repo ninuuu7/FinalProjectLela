@@ -1,8 +1,6 @@
 package PageObject;
 
-import DataObject.HomePageData;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class HomePage {
     protected By
