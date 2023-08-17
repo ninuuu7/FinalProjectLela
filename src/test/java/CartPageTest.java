@@ -15,7 +15,7 @@ public class CartPageTest implements LogInData {
 
     WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod (groups = "Actions on Cart Page")
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -27,7 +27,7 @@ public class CartPageTest implements LogInData {
         loginSteps.clickOnLogInButton();
     }
 
-    @Test
+    @Test (priority = 1, groups = "Actions on Cart Page")
     public void isProductAddedToTheCart() {
 
         HomePageSteps homePage = new HomePageSteps(driver);
@@ -39,7 +39,7 @@ public class CartPageTest implements LogInData {
 
     }
 
-    @Test
+    @Test (priority = 2, groups = "Actions on Cart Page")
     public void ifTheProductIsRemovedFromTheCart() {
         HomePageSteps homePage = new HomePageSteps(driver);
         CartPageSteps cartPage = new CartPageSteps(driver);
@@ -49,7 +49,7 @@ public class CartPageTest implements LogInData {
         Assert.assertFalse(cartPage.checkExistanceOfTheSelectedProductInTheCart());
     }
 
-    @Test
+    @Test (priority = 3, groups = "Actions on Cart Page")
     public void goToTheCheckoutPage() {
         HomePageSteps homePage = new HomePageSteps(driver);
         CartPageSteps cartPae = new CartPageSteps(driver);
@@ -59,7 +59,7 @@ public class CartPageTest implements LogInData {
     }
 
 
-    @AfterMethod
+    @AfterMethod (groups = "Actions on Cart Page")
     public void endTest() {
         driver.quit();
     }
